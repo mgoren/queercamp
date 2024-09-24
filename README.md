@@ -18,7 +18,7 @@ React app that uses Firebase for database, hosting, and serverless functions bac
 
 ## Copy template project
 
-- ME: `cp -R [TEMPLATE_DIR] [DESTINATION_DIR] && cd [DESTINATION_DIR] && gh repo create [NAME] [--private] --source=. --remote=origin`
+- ME: `cp -R [TEMPLATE_DIR] [DESTINATION_DIR] && cd [DESTINATION_DIR] && git remote rm origin && gh repo create [NAME] [--public|private] --source=. --remote=origin`
 - ANYONE ELSE: Fork [template project](https://github.com/mgoren/registration-template) and clone it to a local directory
 
 ## Erase settings from old project:
@@ -174,13 +174,16 @@ firebase deploy --only functions
 
 ## Add error logging for Firebase functions:
 
-Setup logs for appendrecordtospreadsheet Firebase function to notify on `severity=(ERROR OR INFO)`:
+###################################################################################
+### NOTE: Google will soon begin charging $1.50/month for each alert condition! ###
+###################################################################################
 
-- Do this two-line query:
+Setup logs for Firebase functions to notify on error:
+
+- Do this query:
 
 ```
-(resource.type="cloud_function" resource.labels.function_name=("appendrecordtospreadsheet") resource.labels.region="us-central1") OR (resource.type="cloud_run_revision" resource.labels.service_name=("appendrecordtospreadsheet") resource.labels.location="us-central1")
-severity=(ERROR OR INFO)
+resource.type="cloud_run_revision" severity="ERROR"
 ```
 
 - then click on "Create alert"
