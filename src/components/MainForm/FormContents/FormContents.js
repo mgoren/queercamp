@@ -9,7 +9,7 @@ const { NUM_PAGES } = config;
 export default function FormContents({ formikRef }) {
   const { updateOrder, currentPage, setCurrentPage } = useOrder();
 
-  console.log('FormContents rendered');
+  // console.log('FormContents rendered');
 
   function handleClickBackButton() {
     if (formikRef.current) {

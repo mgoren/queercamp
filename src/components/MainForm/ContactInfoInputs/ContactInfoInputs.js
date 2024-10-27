@@ -6,7 +6,7 @@ const { FIELD_CONFIG } = config;
 
 function ContactInfoInputs({ fields, index }) {
 
-  console.log('ContactInfoInputs rendered');
+  // console.log('ContactInfoInputs rendered');
 
   return (
     <Grid container spacing={2}>

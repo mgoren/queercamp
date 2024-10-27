@@ -9,7 +9,7 @@ const { PERSON_INPUT_LABELS, PERSON_CONTACT_FIELDS } = config;
 function ContactInfo({ index }) {
   useEffect(() => { scrollToTop(); },[])
 
-  console.log('ContactInfo rendered');
+  // console.log('ContactInfo rendered');
 
   return (
     <section className='contact-section'>

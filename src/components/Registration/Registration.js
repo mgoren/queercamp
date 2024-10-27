@@ -11,7 +11,7 @@ import OrderSummary from "components/OrderSummary";
 import { Typography, Button } from "@mui/material";
 import { StyledPaper, Paragraph } from 'components/Layout/SharedStyles';
 import config from 'config';
-const { PAYMENT_METHODS, PAYPAL_OPTIONS, TITLE, CONFIRMATION_CHECK_TITLE, CONFIRMATION_PAYPAL_TITLE, SANDBOX_MODE, SHOW_PRE_REGISTRATION } = config;
+const { PAYMENT_METHODS, PAYPAL_OPTIONS, CONFIRMATION_CHECK_TITLE, CONFIRMATION_PAYPAL_TITLE, SANDBOX_MODE, SHOW_PRE_REGISTRATION } = config;
 
 export default function Registration() {
   const [registering, setRegistering] = useState(false);
@@ -43,7 +43,7 @@ const RealRegistration = () => {
     <>
       {error && <Error />}
 
-      <Header titleText={currentPage === 'confirmation' ? CONFIRMATION_TITLE : TITLE}>
+      <Header titleText={currentPage === 'confirmation' ? CONFIRMATION_TITLE : ''}>
         {currentPage === 1 && <IntroHeader />}
         {currentPage === 'checkout' && <OrderSummary order={order} currentPage={currentPage} />}
       </Header>
