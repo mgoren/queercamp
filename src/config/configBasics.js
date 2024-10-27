@@ -19,7 +19,7 @@ const config = {
   TITLE: 'Queer Contra Dance Registation',
   CONFIRMATION_PAYPAL_TITLE: 'SFBQCD Confirmation',
   CONFIRMATION_CHECK_TITLE: 'SFBQCD Registration',
-  EMAIL_CONTACT: 'contra@queercontradance.org',
+  EMAIL_CONTACT: 'camp@queercontradance.org',
   COVID_POLICY_URL: 'https://queercontradance.org/queercamp.html#healthsafetyprecautions',
   SAFETY_POLICY_URL: 'https://queercontradance.org/queercamp.html#conduct',
   DIRECT_PAYMENT_URL: 'https://www.paypal.com/donate/?hosted_button_id=DB56P9N4A4FQ4',

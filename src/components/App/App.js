@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 // import Home from 'components/Static/Home';
 // import About from 'components/Static/About';
@@ -13,12 +13,12 @@ import Error from 'components/Error';
 import ScrollToAnchor from 'components/ScrollToAnchor';
 import { OrderProvider } from 'components/OrderContext';
 import config from 'config';
-const { EVENT_TITLE, EMAIL_CONTACT } = config;
+const { EMAIL_CONTACT } = config;
 
 export default function App() {
-  useEffect(() => {
-    document.title = EVENT_TITLE;
-  }, []);
+  // useEffect(() => {
+    // document.title = 'Queer Contra Camp Registration';
+  // }, []);
 
   return (
     <>
