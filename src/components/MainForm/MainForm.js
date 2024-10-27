@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useOrder } from 'components/OrderContext';
 import { Formik } from 'formik';
 import { sanitizeObject, warnBeforeUserLeavesSite } from 'utils';
@@ -8,6 +8,7 @@ import config from 'config';
 const { NUM_PAGES, DEPOSIT_COST } = config;
 
 export default function MainForm() {
+  const formikRef = useRef();
   const { order, updateOrder, currentPage, setCurrentPage } = useOrder();
 
   useEffect(() => {
@@ -42,8 +43,9 @@ export default function MainForm() {
       validateOnBlur={true}
       validateOnChange={false}
       onSubmit={ (values, actions) => {submitForm(values, actions);} }
+      innerRef={formikRef}
     >
-      <FormContents />
+      <FormContents formikRef={formikRef} />
     </Formik>
   );
 }

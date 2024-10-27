@@ -76,7 +76,7 @@ export const useOrderOperations = () => {
 
   const prepOrderForFirebase = () => {
     const updates = {
-      people: order.people.map(updateApartment),
+      people: order.people.map(updateApartment).map(updatePhoto),
       paymentMethod,
       paymentId: 'PENDING',
       status: 'pendingInitialSave'
@@ -126,6 +126,10 @@ export const useOrderOperations = () => {
 
 function updateApartment(person) {
   return (person.apartment && /^\d/.test(person.apartment)) ? { ...person, apartment: `#${person.apartment}` } : person;
+}
+
+function updatePhoto(person) {
+  return person.photo === 'Other' ? { ...person, photo: person.photoComments } : person;
 }
 
 function generateReceipts({ order }) {

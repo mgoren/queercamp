@@ -14,6 +14,8 @@ export default function PersonForm({ editIndex, setEditIndex, isNewPerson, setIs
   const formik = useFormikContext();
   const { values, setFieldValue } = formik;
 
+  // console.log('PersonForm rendered');
+
   async function validatePersonForm() {
     const errors = await formik.validateForm();
     if (Object.keys(errors).length > 0) {

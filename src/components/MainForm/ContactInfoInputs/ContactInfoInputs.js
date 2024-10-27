@@ -1,16 +1,12 @@
+import React from 'react';
 import { Input } from '../Input';
 import { Grid } from '@mui/material';
 import config from 'config';
-import { useFormikContext } from 'formik';
 const { FIELD_CONFIG } = config;
 
-export default function ContactInfoInputs({ fields, index }) {
-  const formik = useFormikContext();
-  const { setFieldError } = formik;
+function ContactInfoInputs({ fields, index }) {
 
-  const clearErrorMessage = (field) => {
-    setFieldError(`people[${index}].${field}`, '');
-  }
+  console.log('ContactInfoInputs rendered');
 
   return (
     <Grid container spacing={2}>
@@ -24,9 +20,9 @@ export default function ContactInfoInputs({ fields, index }) {
             placeholder={FIELD_CONFIG[field].placeholder}
             autoComplete={FIELD_CONFIG[field].autoComplete}
             fullWidth
+            required={FIELD_CONFIG[field].required}
             mask='_'
             variant='standard'
-            onFocus={() => clearErrorMessage(field)}
             hidden={FIELD_CONFIG[field].hidden}
           />
         </Grid>
@@ -34,3 +30,5 @@ export default function ContactInfoInputs({ fields, index }) {
     </Grid>
   );
 }
+
+export default React.memo(ContactInfoInputs);

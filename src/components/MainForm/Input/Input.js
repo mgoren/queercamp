@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 import { isMobile } from "react-device-detect";
-import { Field, useFormikContext, getIn } from 'formik';
+import { Field, useFormikContext, getIn, useField, FastField } from 'formik';
 import { PatternFormat } from 'react-number-format';
 import { Box, Typography, TextField, Button, Checkbox, FormControlLabel, FormControl, RadioGroup, Radio, FormHelperText } from '@mui/material';
 import { usePlacesWidget } from "react-google-autocomplete";
-import { useField } from 'formik';
 import config from 'config';
 const { INCLUDE_LAST_ON_NAMETAG } = config;
 
@@ -42,6 +41,7 @@ const ButtonInput = ({ buttonText, onClick }) => {
 };
 
 const TextInput = ({ label, name, type, hidden, ...props }) => {
+  const [,,helpers] = useField(name);
   const { touched, errors, values, setFieldValue, handleBlur } = useFormikContext();
   const handleBlurAndSetNametag = (e) => {
     handleBlur(e);  // bubble up to default Formik onBlur handler
@@ -60,7 +60,7 @@ const TextInput = ({ label, name, type, hidden, ...props }) => {
     }
   };
   return (
-    <Field name={name}>
+    <FastField name={name}>
       {({ field }) => {
         const fieldError = getIn(errors, name);
         const isTouched = getIn(touched, name);
@@ -79,19 +79,21 @@ const TextInput = ({ label, name, type, hidden, ...props }) => {
               helperText={isTouched && fieldError}
               {...field}
               onBlur={handleBlurAndSetNametag}
+              onFocus={() => helpers.setError('')}
               {...props}
             />
           </Box>
         )
       }}
-    </Field>
+    </FastField>
   );
 };
 
 const NumericInput = ({ variant, label, name, type, pattern, range, ...props }) => {
+  const [,,helpers] = useField(name);
   const { touched, errors, setFieldValue } = useFormikContext();
   return (
-    <Field name={name}>
+    <FastField name={name}>
       {({ field }) => {
         const isPhoneInput = name.includes('phone');
         const fieldError = isPhoneInput && getIn(errors, name);
@@ -109,12 +111,13 @@ const NumericInput = ({ variant, label, name, type, pattern, range, ...props }) 
               error={Boolean(isTouched && fieldError)}
               helperText={isTouched && fieldError}
               {...field}
+              onFocus={() => helpers.setError('')}
               {...props}
             />
           </Box>
         )
       }}
-    </Field>
+    </FastField>
   );
 };
 
@@ -129,7 +132,7 @@ const TextArea = ({ label, name, rows }) => {
         name={name}
         multiline
         rows={rows}
-        sx={{ width: '100%' }}
+        sx={{ width: '100%', '& textarea': { resize: 'vertical' } }}
       />
     </>
   );
@@ -197,6 +200,7 @@ const RadioButtons = ({ name, label, options, field, index, required }) => {
 };
 
 const AddressAutocompleteInput = ({ label, ...props }) => {
+  const [,,helpers] = useField(props.name);
   const { setFieldValue, setFieldError } = useFormikContext();
   const [field, meta] = useField(props);
   const { ref } = usePlacesWidget({
@@ -256,6 +260,7 @@ const AddressAutocompleteInput = ({ label, ...props }) => {
     <TextField
       label={label}
       {...field}
+      onFocus={() => helpers.setError('')}
       {...props}
       inputRef={ref}
       error={Boolean(meta.touched && meta.error)}

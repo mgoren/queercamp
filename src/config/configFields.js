@@ -12,7 +12,7 @@ const PHONE_VALIDATION = Yup.string().matches(PHONE_REGEX, 'Please enter a valid
 
 // config for this particular registration instance; update this as needed!
 export const PERSON_CONTACT_FIELDS = ['first', 'last', 'nametag', 'pronouns', 'email', 'emailConfirmation', 'phone', 'address', 'apartment', 'city', 'state', 'zip', 'country'];
-export const PERSON_MISC_FIELDS = ['share', 'dietaryPreferences', 'dietaryRestrictions', 'allergies', 'scent', 'carpool', 'bedding', 'volunteer', 'housing', 'roommate', 'photo', 'comments'];
+export const PERSON_MISC_FIELDS = ['share', 'dietaryPreferences', 'dietaryRestrictions', 'allergies', 'scent', 'carpool', 'bedding', 'volunteer', 'housing', 'roommate', 'photo', 'photoComments', 'comments'];
 export const PERSON_PAYMENT_FIELDS = ['admission'];
 
 // this can include config for fields not used in this particular registration instance
@@ -22,6 +22,7 @@ export const FIELD_CONFIG = {
     validation: NAME_VALIDATION.required('Please enter first name.'),
     defaultValue: '',
     width: 6,
+    required: true,
     autoComplete: 'given-name'
   },
   last: {
@@ -29,6 +30,7 @@ export const FIELD_CONFIG = {
     validation: NAME_VALIDATION.required('Please enter last name.'),
     defaultValue: '',
     width: 6,
+    required: true,
     autoComplete: 'family-name'
   },
   pronouns: {
@@ -41,6 +43,7 @@ export const FIELD_CONFIG = {
     label: 'Name for roster',
     validation: NAME_VALIDATION.required('Please enter name for roster.'),
     defaultValue: '',
+    required: true,
     width: 12
   },
   email: {
@@ -49,6 +52,7 @@ export const FIELD_CONFIG = {
     validation: EMAIL_VALIDATION.required('Please enter email address.'),
     defaultValue: '',
     width: 6,
+    required: true,
     autoComplete: 'email'
   },
   emailConfirmation: {
@@ -57,6 +61,7 @@ export const FIELD_CONFIG = {
     validation: EMAIL_VALIDATION.required('Please re-enter your email address.').oneOf([Yup.ref('email'), null], 'Email addresses must match.'),
     defaultValue: '',
     width: 6,
+    required: true,
     autoComplete: 'email'
   },
   phone: {
@@ -68,6 +73,7 @@ export const FIELD_CONFIG = {
     defaultValue: '',
     width: 12,
     // width: 4,
+    required: true,
     autoComplete: 'tel'
   },
   address: {
@@ -76,6 +82,7 @@ export const FIELD_CONFIG = {
     validation: Yup.string().required('Please enter street address.'),
     defaultValue: '',
     width: 9,
+    required: true,
     autoComplete: 'street-address'
   },
   apartment: {
@@ -91,6 +98,7 @@ export const FIELD_CONFIG = {
     defaultValue: '',
     width: 6,
     // width: 5,
+    required: true,
     autoComplete: 'city'
   },
   state: {
@@ -98,6 +106,7 @@ export const FIELD_CONFIG = {
     validation: Yup.string().required('Please enter state or province.'),
     defaultValue: '',
     width: 3,
+    required: true,
     autoComplete: 'state'
   },
   zip: {
@@ -105,6 +114,7 @@ export const FIELD_CONFIG = {
     validation: Yup.string().required('Please enter zip/postal code.'),
     defaultValue: '',
     width: 3,
+    required: true,
     autoComplete: 'postal-code'
   },
   country: {
@@ -235,6 +245,13 @@ export const FIELD_CONFIG = {
     required: true,
     validation: Yup.string().required('Please select photo consent preference.'),
     defaultValue: '',
+  },
+  photoComments: {
+    type: 'textarea',
+    label: "Please explain any concerns or requests about photos here.",
+    validation: Yup.string(),
+    defaultValue: '',
+    rows: 2
   },
   bedding: {
     type: 'checkbox',

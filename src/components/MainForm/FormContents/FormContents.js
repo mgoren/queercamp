@@ -1,20 +1,23 @@
 import { useOrder } from 'components/OrderContext';
-import { Form, useFormikContext } from 'formik';
+import { Form } from 'formik';
 import People from '../People';
 import PaymentInfo from '../PaymentInfo';
 import NavButtons from 'components/NavButtons';
 import config from 'config';
 const { NUM_PAGES } = config;
 
-export default function FormContents() {
+export default function FormContents({ formikRef }) {
   const { updateOrder, currentPage, setCurrentPage } = useOrder();
-  const formik = useFormikContext();
-  const { values } = formik;
+
+  console.log('FormContents rendered');
 
   function handleClickBackButton() {
-    updateOrder(values);
-    formik.setSubmitting(false);
-    setCurrentPage(currentPage - 1);
+    if (formikRef.current) {
+      const values = formikRef.current.values;
+      updateOrder(values);
+      formikRef.current.setSubmitting(false);
+      setCurrentPage(currentPage - 1);
+    }
   }
 
   return(

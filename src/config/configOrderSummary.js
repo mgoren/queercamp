@@ -17,6 +17,7 @@ const config = {
     { property: 'housing', label: 'Housing' },
     { property: 'roommate', label: 'Roommate' },
     { property: 'photo', label: 'Photo Consent' },
+    { property: 'photoComments', label: 'Photo Comments' },
     { property: 'comments', label: 'Comments' },
     // { property: 'admission', label: 'Admission Cost' },
   ]

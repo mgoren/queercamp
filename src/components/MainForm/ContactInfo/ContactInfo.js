@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect } from 'react';
 import { scrollToTop } from 'utils';
 import ContactInfoInputs from '../ContactInfoInputs';
@@ -5,8 +6,10 @@ import { Title } from 'components/Layout/SharedStyles';
 import config from 'config';
 const { PERSON_INPUT_LABELS, PERSON_CONTACT_FIELDS } = config;
 
-export default function ContactInfo({ index }) {
+function ContactInfo({ index }) {
   useEffect(() => { scrollToTop(); },[])
+
+  console.log('ContactInfo rendered');
 
   return (
     <section className='contact-section'>
@@ -18,3 +21,5 @@ export default function ContactInfo({ index }) {
     </section>
   );
 }
+
+export default React.memo(ContactInfo);
