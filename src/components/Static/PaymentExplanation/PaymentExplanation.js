@@ -14,7 +14,7 @@ export function PaymentExplanation() {
       </Paragraph>
 
       <Paragraph>
-        The lovely campgrounds that host us is $239 per person for two nights of lodging and five hot meals. We spend about $13,000 booking premier talent so camp can have such fabulous bands, callers, and sound. While our organizers are volunteers, there are other miscellaneous costs such as snacks, insurance, and general supplies. All in all, it costs us about $380 per person to make camp run.
+        The lovely venue that hosts us is $239 per person for two nights of lodging and five hot meals. We spend about $13,000 booking premier talent so camp can have such fabulous bands, callers, and sound. While our organizers are volunteers, there are other miscellaneous costs such as snacks, insurance, and general supplies. All in all, it costs us about $380 per person to make camp run.
       </Paragraph>
 
       <Title sx={{mt: 4}}>Sliding-scale suggestions</Title>
@@ -49,7 +49,9 @@ export function PaymentExplanation() {
 
       <Title sx={{mt: 4}}>Cancellations</Title>
       <Paragraph>
-        Cancellations are fully refundable through February 1st. After Febraury 1st, refunds (minus a $50 fee) are available if your vacant spot is filled. If a health concern comes up before the weekend, contact us directly and we'll work with you.
+        Cancellations are fully refundable through January 31st or in the case of communicable illness.
+        After Febraury 1st, refunds (minus a $50 fee) are not guaranteed but may be available if your vacant spot is filled.
+        If a health concern comes up before the weekend, contact us directly and we'll work with you.
       </Paragraph>
 
     </StyledPaper>

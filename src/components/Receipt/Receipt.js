@@ -4,7 +4,7 @@ import OrderSummary, { PersonSummary } from 'components/OrderSummary';
 import { Divider, Typography } from '@mui/material';
 import { StyledLink } from 'components/Layout/SharedStyles';
 import config from 'config';
-const { COVID_POLICY_URL, CHECK_TO, CHECK_ADDRESS, EVENT_TITLE, PAYMENT_DUE_DATE, DIRECT_PAYMENT_URL } = config;
+const { COVID_POLICY_URL, EVENT_TITLE, PAYMENT_DUE_DATE, DIRECT_PAYMENT_URL } = config;
 
 // relies on passing order as prop to ensure is updated
 export default function Receipt({ order, person, isPurchaser }) {
@@ -29,8 +29,7 @@ export default function Receipt({ order, person, isPurchaser }) {
         (Or you can still pay electronically <StyledLink to={websiteLink(DIRECT_PAYMENT_URL)}>here</StyledLink>.)
       </Typography>
       <Typography component='p' sx={{ mt: 2 }}>
-        Make your check out to {CHECK_TO}:<br />
-        {CHECK_ADDRESS}
+        Reply to this email for info on filling out and mailing your check.
       </Typography>
       <Typography component='p' sx={{ mt: 2 }}>
         We will be in touch soon to confirm your acceptance into camp, once we receive your payment!

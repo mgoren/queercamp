@@ -25,7 +25,7 @@ const config = {
   DIRECT_PAYMENT_URL: 'www.paypal.com/donate/?hosted_button_id=DB56P9N4A4FQ4',
   CHECK_TO: 'Check To Example',
   CHECK_ADDRESS: <>Address line 1<br />Address line 2<br />Address line 3<br />Address line 4</>,
-  PAYMENT_DUE_DATE: 'Example Payment Due Date',
+  PAYMENT_DUE_DATE: 'March 31st',
   PERSON_INPUT_LABELS: [ 'Your contact information', 'Second admission', 'Third admission', 'Fourth admission' ],
   NUM_PAGES: 2,
   STEPS: [

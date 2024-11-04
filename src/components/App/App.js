@@ -17,7 +17,7 @@ const { EMAIL_CONTACT } = config;
 
 export default function App() {
   // useEffect(() => {
-    // document.title = 'Queer Contra Camp Registration';
+    // document.title = 'Queer Contra Dance Camp Registration';
   // }, []);
 
   return (

@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useOrder } from 'components/OrderContext';
 import { Typography, Button } from '@mui/material';
+import { StyledLink } from 'components/Layout/SharedStyles';
+import { mailtoLink } from 'utils';
 import Loading from 'components/Loading';
 import config from 'config';
-const { CHECK_ADDRESS, CHECK_TO, SANDBOX_MODE } = config;
+const { SANDBOX_MODE, EMAIL_CONTACT } = config;
 
 export default function Check({ processCheckout }) {
   const { processing } = useOrder();
@@ -26,11 +28,7 @@ export default function Check({ processCheckout }) {
       {!processing &&
         <>
           <Typography sx={{ mt: 2 }}>
-            Make your check out to {CHECK_TO}<br />
-            Write your name in the memo area, and mail to:
-          </Typography>
-          <Typography sx={{ mt: 2 }}>
-            {CHECK_ADDRESS }
+            Email <StyledLink to={mailtoLink(EMAIL_CONTACT)}>{EMAIL_CONTACT}</StyledLink> for info on filling out and mailing your check.
           </Typography>
 
           {!ready && <Loading />}
